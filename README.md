@@ -27,3 +27,21 @@ deploy:
 Aliyun only finds `index.html` in root. This is [detail](https://help.aliyun.com/document_detail/31872.html?spm=5176.doc32081.2.2.aqynPK)
 
 So you must set full url in your hexo blog codes like `/archives/index.html` except the root path.
+
+## Unit Test
+
+- SET Aliyun OSS ENV (OSS_BUCKET ...) IN `.env` file  
+
+```
+OSS_BUCKET
+OSS_REGION
+OSS_ACCESSKEYID
+OSS_ACCESSKEYSECRET
+```
+
+ - mocha test
+
+```
+npm install
+mocha
+```
