@@ -13,6 +13,8 @@ describe('deployer', () => {
     const fakeBucket = process.env.OSS_BUCKET;
     const fakeAK = process.env.OSS_ACCESSKEYID;
     const fakeAS = process.env.OSS_ACCESSKEYSECRET;
+    assert.equal(process.env.OSS_TIMEOUT, '180s')
+    const fakeTimeout = process.env.OSS_TIMEOUT;
 
     const ctx = {
         public_dir: publicDir,
@@ -28,7 +30,8 @@ describe('deployer', () => {
         region: process.env.OSS_REGION,
         accessKeyId: fakeAK,
         accessKeySecret: fakeAS,
-        bucket: process.env.OSS_BUCKET
+        bucket: process.env.OSS_BUCKET,
+        timeout: fakeTimeout
     });
 
     before(() => {
@@ -53,7 +56,8 @@ describe('deployer', () => {
             region: fakeRegion,
             bucket: fakeBucket,
             accessKeyId: fakeAK,
-            accessKeySecret: fakeAS
+            accessKeySecret: fakeAS,
+            timeout: fakeTimeout
         }).then(() => {
           return validate();
         });

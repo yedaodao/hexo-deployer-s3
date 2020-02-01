@@ -33,10 +33,11 @@ So you must set full url in your hexo blog codes like `/archives/index.html` exc
 - SET Aliyun OSS ENV (OSS_BUCKET ...) IN `.env` file  
 
 ```
-OSS_BUCKET
-OSS_REGION
-OSS_ACCESSKEYID
-OSS_ACCESSKEYSECRET
+OSS_BUCKET   -> REQUIRED
+OSS_REGION   -> REQUIRED
+OSS_ACCESSKEYID  -> REQUIRED
+OSS_ACCESSKEYSECRET -> REQUIRED
+OSS_TIMEOUT  -> OPTIONAL
 ```
 
  - mocha test
