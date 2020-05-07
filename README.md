@@ -20,6 +20,7 @@ deploy:
   region: <yourOSSregion>
   accessKeyId: <yourAccessKeyId>
   accessKeySecret: <yourAccessKeySecret>
+  timeout: <timeout(defaut 60s)>
 ```
 
 ## Known Issues
@@ -27,3 +28,22 @@ deploy:
 Aliyun only finds `index.html` in root. This is [detail](https://help.aliyun.com/document_detail/31872.html?spm=5176.doc32081.2.2.aqynPK)
 
 So you must set full url in your hexo blog codes like `/archives/index.html` except the root path.
+
+## Unit Test
+
+- SET Aliyun OSS ENV (OSS_BUCKET ...) IN `.env` file  
+
+```
+OSS_BUCKET   -> REQUIRED
+OSS_REGION   -> REQUIRED
+OSS_ACCESSKEYID  -> REQUIRED
+OSS_ACCESSKEYSECRET -> REQUIRED
+OSS_TIMEOUT  -> OPTIONAL
+```
+
+ - mocha test
+
+```
+npm install
+mocha
+```

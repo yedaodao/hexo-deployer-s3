@@ -5,6 +5,8 @@
 *.DS_Store
 .AppleDouble
 .LSOverride
+*.swp
+.env.local
 
 # Icon must end with two \r
 Icon
@@ -179,6 +181,7 @@ jspm_packages
 
 # Custom
 .idea
+.vscode
 
 
 # End of https://www.gitignore.io/api/osx,linux,webstorm,sublimetext,node
