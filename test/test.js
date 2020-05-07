@@ -49,6 +49,26 @@ describe('deployer', () => {
         });
     }   
 
+    function validateSupportSubDirTrue() {
+        return client.getBucketWebsite(fakeBucket).then(function (result) {
+            assert.equal(result.supportSubDir, "true");
+            return result;
+        }).catch(function (err) {
+            console.log(err);
+            throw err;
+        });
+    }
+
+    function validateSupportSubDirFalse() {
+        return client.getBucketWebsite(fakeBucket).then(function (result) {
+            assert.equal(result.supportSubDir, "false");
+            return result;
+        }).catch(function (err) {
+            console.log(err);
+            throw err;
+        });
+    }
+
 
     it('upload public/index.html', () => {
         return deployer({
@@ -61,7 +81,26 @@ describe('deployer', () => {
           return validate();
         });
       });
+    
+    it('put BucketWebsite supportSubDir true', () => {
+        client.putBucketWebsite(fakeBucket, {
+            index: 'index.html',
+            error: 'error.html',
+            supportSubDir: 'true'  // ali-oss 6.6.0+ support
+        }).then(() => {
+            return validateSupportSubDirTrue()
+        })
+    })
 
+    it('put BucketWebsite supportSubDir false', () => {
+        client.putBucketWebsite(fakeBucket, {
+            index: 'index.html',
+            error: 'error.html',
+            supportSubDir: 'false'  // ali-oss 6.6.0+ support
+        }).then(() => {
+            return validateSupportSubDirFalse()
+        })
+    })
 
     after(() => {
         return fs.rmdir(publicDir).then(() => {

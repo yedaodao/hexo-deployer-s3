@@ -20,6 +20,7 @@ deploy:
   region: <yourOSSregion>
   accessKeyId: <yourAccessKeyId>
   accessKeySecret: <yourAccessKeySecret>
+  timeout: <timeout(defaut 60s)>
 ```
 
 ## Known Issues

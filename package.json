@@ -17,7 +17,7 @@
   "author": "yedaodao",
   "license": "MIT",
   "dependencies": {
-    "ali-oss": "^6.5.1",
+    "ali-oss": "^6.6.0",
     "bluebird": "^3.7.2",
     "chalk": "^3.0.0",
     "hexo-fs": "^2.0.0"
